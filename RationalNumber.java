@@ -10,6 +10,7 @@ public class RationalNumber extends RealNumber {
     super(0.0);//this value is ignored!
     numerator = nume;
     denominator = deno;
+    reduce();
   }
 
   public double getValue(){
@@ -58,10 +59,20 @@ public class RationalNumber extends RealNumber {
   *@param b the second integer
   *@return the value of the GCD
   */
+  private static int gcdOrdered(int a, int b) {
+    int r = a % b;
+    if (r == 0) {
+      return b;
+    }
+    return gcdOrdered(b, r);
+  }
   private static int gcd(int a, int b){
     /*use euclids method or a better one*/
-    http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    //sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
+    if (a > b) {
+      return gcdOrdered(a, b);
+    }
+    return gcdOrdered(b, a);
   }
 
   /**
@@ -70,7 +81,14 @@ public class RationalNumber extends RealNumber {
   *reduced after construction.
   */
   private void reduce(){
-
+    if (numerator == 0) {
+      denominator = 1;
+    }
+    else {
+      int gcd = gcd(numerator, denominator);
+      numerator /= gcd;
+      denominator /= gcd;
+    }
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
