@@ -33,20 +33,24 @@ public class RationalNumber extends RealNumber {
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    return null;
+    return new RationalNumber(denominator, numerator);
   }
   /**
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
-    return false;
+    return numerator == other.getNumerator() && denominator == other.getDenominator();
   }
 
   /**
   *@return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
-    return "0";
+    String output = "" + numerator;
+    if (denominator != 1) {
+      output += "/" + denominator;
+    }
+    return output;
   }
 
   /**Calculate the GCD of two integers.
