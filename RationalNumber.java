@@ -88,6 +88,10 @@ public class RationalNumber extends RealNumber {
       int gcd = gcd(numerator, denominator);
       numerator /= gcd;
       denominator /= gcd;
+      if (denominator < 0) {
+        numerator *= -1;
+        denominator *= -1;
+      }
     }
   }
   /******************Operations Return a new RationalNumber!!!!****************/
