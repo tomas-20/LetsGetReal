@@ -9,9 +9,13 @@ public class Test {
     System.out.println(uno.multiply(dos));
     System.out.println(uno.divide(dos));
     System.out.println(uno.subtract(dos));
+    System.out.println();
     System.out.println(tres);
     System.out.println(cuatro);
     System.out.println(tres.equals(cuatro));
-    System.out.println(tres.reciprocal());
+    System.out.println(tres.add(cuatro));
+    System.out.println(tres.multiply(cuatro));
+    System.out.println(tres.divide(cuatro));
+    System.out.println(tres.subtract(cuatro));
   }
 }

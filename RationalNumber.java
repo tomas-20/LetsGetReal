@@ -99,26 +99,33 @@ public class RationalNumber extends RealNumber {
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    return new RationalNumber(numerator * other.getNumerator(), denominator * other.getDenominator());
   }
 
   /**
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    return null;
+    return multiply(other.reciprocal());
   }
 
   /**
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return null;
+    int otherDenominator = other.getDenominator();
+    int gcd = gcd(denominator, otherDenominator);
+    int mult1 = otherDenominator / gcd;
+    int mult2 = denominator / gcd;
+    return new RationalNumber(numerator * mult1 + other.getNumerator() * mult2, mult1 * mult2);
   }
   /**
   *Return a new RationalNumber that this minus the other
   */
+  private RationalNumber negative() {
+    return new RationalNumber(- numerator, denominator);
+  }
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    return add(other.negative());
   }
 }
