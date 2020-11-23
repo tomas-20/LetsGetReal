@@ -114,10 +114,7 @@ public class RationalNumber extends RealNumber {
   */
   public RationalNumber add(RationalNumber other){
     int otherDenominator = other.getDenominator();
-    int gcd = gcd(denominator, otherDenominator);
-    int mult1 = otherDenominator / gcd;
-    int mult2 = denominator / gcd;
-    return new RationalNumber(numerator * mult1 + other.getNumerator() * mult2, mult1 * mult2);
+    return new RationalNumber(numerator * otherDenominator + other.getNumerator() * denominator, denominator * otherDenominator);
   }
   /**
   *Return a new RationalNumber that this minus the other
