@@ -4,9 +4,17 @@ public abstract class Number{
   return a negative value when this Number is smaller than the other Number
   return a positive value when this Number is larger than the other Number
   */
-  //public int compareTo(Number other){
-    //TO BE IMPLEMENTED
-  //}
+  public int compareTo(Number other){
+    if (equals(other)) {
+      return 0;
+    }
+    else if (getValue() > other.getValue()) {
+      return 1;
+    }
+    else {
+      return -1;
+    }
+  }
 
   /*
   *Return true when the % difference of the values
